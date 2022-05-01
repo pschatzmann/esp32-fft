@@ -37,6 +37,11 @@
 #ifndef __FFT_H__
 #define __FFT_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef enum
 {
   FFT_REAL,
@@ -75,5 +80,9 @@ void split_radix_fft(float *x, float *y, int n, int stride, float *twiddle_facto
 void ifft_primitive(float *input, float *output, int n, int stride, float *twiddle_factors, int tw_stride);
 void fft8(float *input, int stride_in, float *output, int stride_out);
 void fft4(float *input, int stride_in, float *output, int stride_out);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // __FFT_H__
