@@ -86,6 +86,18 @@ When doing an inverse real FFT, the data in the input buffer is destroyed.
         Input  : [ Re(x[0]), Im(x[0]), ..., Re(x[NFFT-1]), Im(x[NFFT-1]) ]
         Output : [ Re(X[0]), Im(X[0]), ..., Re(X[NFFT-1]), Im(X[NFFT-1]) ]
 
+Arduino
+--------
+You can download the library as zip and call include Library -> zip library. Or you can git clone this project into the Arduino libraries folder e.g. with
+
+```
+cd  ~/Documents/Arduino/libraries
+git clone pschatzmann/esp32-fft.git
+```
+
+I recommend to use git because you can easily update to the latest version just by executing the ```git pull``` command in the project folder.
+
+
 License
 -------
 
