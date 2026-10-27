@@ -1,6 +1,11 @@
 ESP32 FFT
 =========
 
+[![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
+[![IDF Component](https://img.shields.io/badge/IDF-Component-blue.svg)](https://github.com/pschatzmann/esp32-fft)
+[![CMake](https://img.shields.io/badge/CMake-Supported-blue.svg)](https://github.com/pschatzmann/esp32-fft/blob/master/CMakeLists.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 This provides a vanilla radix-2 FFT out-of-place implementation and a test example.
 
 Author
@@ -96,6 +101,39 @@ git clone pschatzmann/esp32-fft.git
 ```
 
 I recommend to use git because you can easily update to the latest version just by executing the ```git pull``` command in the project folder.
+
+ESP-IDF
+-------
+The library can be used as an ESP-IDF component. Clone it into the `components` folder of your project:
+
+```
+cd my_project/components
+git clone https://github.com/pschatzmann/esp32-fft.git
+```
+
+or reference it in your `main/idf_component.yml`:
+
+```yaml
+dependencies:
+  esp32-fft:
+    git: https://github.com/pschatzmann/esp32-fft.git
+```
+
+Then add `esp32-fft` to the `REQUIRES` of your component and `#include "fft.h"`.
+
+CMake
+-----
+Outside of ESP-IDF the library builds as a regular static library, so you can use it on any platform:
+
+```cmake
+include(FetchContent)
+FetchContent_Declare(esp32-fft GIT_REPOSITORY https://github.com/pschatzmann/esp32-fft.git GIT_TAG master)
+FetchContent_MakeAvailable(esp32-fft)
+
+target_link_libraries(my_app PRIVATE esp32-fft::esp32-fft)
+```
+
+Alternatively use `add_subdirectory(path/to/esp32-fft)`.
 
 
 License

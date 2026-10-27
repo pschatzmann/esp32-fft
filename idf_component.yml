@@ -1,0 +1,6 @@
+version: "0.1.0"
+description: Fast Fourier Transform (FFT) - vanilla radix-2 out-of-place implementation
+url: https://github.com/pschatzmann/esp32-fft
+license: MIT
+dependencies:
+  idf: ">=4.1"
